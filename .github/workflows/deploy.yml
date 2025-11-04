@@ -29,9 +29,10 @@ jobs:
         run: npm ci
       - name: Build
         run: npm run build
-      - name: Add SPA fallback (optional)
+      - name: Add SPA fallback and nojekyll
         run: |
           cp dist/index.html dist/404.html
+          touch dist/.nojekyll
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
